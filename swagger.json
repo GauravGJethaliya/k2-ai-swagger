@@ -1,0 +1,48 @@
+﻿{
+    "swagger": "2.0",
+    "info": {
+        "title": "K2 AI API",
+        "version": "1.0"
+    },
+    "host": "localhost:7050",
+    "basePath": "/api",
+    "schemes": [ "http" ],
+    "paths": {
+        "/generate-summary": {
+            "post": {
+                "operationId": "GenerateSummary",
+                "consumes": [ "application/json" ],
+                "produces": [ "application/json" ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "text": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [ "text" ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "summary": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
