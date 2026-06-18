@@ -6,27 +6,23 @@
     },
     "host": "localhost:7050",
     "basePath": "/api",
-    "schemes": [ "http" ],
+    "schemes": [
+        "http"
+    ],
     "paths": {
         "/generate-summary": {
-            "post": {
+            "get": {
                 "operationId": "GenerateSummary",
-                "consumes": [ "application/json" ],
-                "produces": [ "application/json" ],
+                "produces": [
+                    "application/json"
+                ],
                 "parameters": [
                     {
-                        "name": "body",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "text": {
-                                    "type": "string"
-                                }
-                            },
-                            "required": [ "text" ]
-                        }
+                        "name": "name",
+                        "in": "query",
+                        "required": false,
+                        "type": "string",
+                        "description": "Name"
                     }
                 ],
                 "responses": {
@@ -35,6 +31,9 @@
                         "schema": {
                             "type": "object",
                             "properties": {
+                                "status": {
+                                    "type": "string"
+                                },
                                 "summary": {
                                     "type": "string"
                                 }
